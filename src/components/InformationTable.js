@@ -54,58 +54,6 @@ const style = {
   },
 };
 
-const image =
-  "https:secure.meetupstatic.com/photos/event/3/1/b/9/600_488352729.jpeg";
-
-function PhoneBookForm(props) {
-  return (
-    <form style={style.form.container}>
-      <label>First name:</label>
-      <br />
-      <input
-        style={style.form.inputs}
-        className="userFirstname"
-        name="firstName"
-        type="text"
-        id="firstName"
-        placeholder="Clarus"
-        required
-      />
-      <br />
-      <label>Last name:</label>
-      <br />
-      <input
-        style={style.form.inputs}
-        className="userLastname"
-        name="lastName"
-        id="lastname"
-        type="text"
-        placeholder="Way"
-        required
-      />
-      <br />
-      <label>Phone:</label>
-      <br />
-      <input
-        style={style.form.inputs}
-        className="userPhone"
-        name="phone"
-        id="phone"
-        type="text"
-        placeholder="0189654752"
-        required
-      />
-      <br />
-      <input
-        style={style.form.submitBtn}
-        className="submitButton"
-        type="submit"
-        value="Add User"
-      />
-    </form>
-  );
-}
-
 function InformationTable(props) {
   return (
     <table style={style.table} className="informationTable">
@@ -125,15 +73,4 @@ function InformationTable(props) {
   );
 }
 
-function App(props) {
-  return (
-    <section style={style.section}>
-      <img style={style.cw} src={image} alt="clarusway" />
-      <PhoneBookForm />
-      Clarusway
-      <InformationTable />
-    </section>
-  );
-}
-
-export default App;
+export default InformationTable;
