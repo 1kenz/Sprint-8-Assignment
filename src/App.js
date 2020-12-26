@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const style = {
   cw: {
@@ -58,6 +58,14 @@ const image =
   "https:secure.meetupstatic.com/photos/event/3/1/b/9/600_488352729.jpeg";
 
 function PhoneBookForm(props) {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState(0);
+
+  const onSubmit = () => {
+    const data = { firstName, lastName, phoneNumber };
+  };
+
   return (
     <form style={style.form.container}>
       <label>First name:</label>
@@ -70,6 +78,7 @@ function PhoneBookForm(props) {
         id="firstName"
         placeholder="Clarus"
         required
+        onChange={(value) => setFirstName(value)}
       />
       <br />
       <label>Last name:</label>
@@ -82,6 +91,7 @@ function PhoneBookForm(props) {
         type="text"
         placeholder="Way"
         required
+        onChange={(value) => setLastName(value)}
       />
       <br />
       <label>Phone:</label>
@@ -94,6 +104,7 @@ function PhoneBookForm(props) {
         type="text"
         placeholder="0189654752"
         required
+        onChange={(value) => setPhoneNumber(value)}
       />
       <br />
       <input
@@ -101,12 +112,14 @@ function PhoneBookForm(props) {
         className="submitButton"
         type="submit"
         value="Add User"
+        onSubmit={onSubmit}
       />
     </form>
   );
 }
 
-function InformationTable(props) {
+function InformationTable({ data, ...props }) {
+  console.log("🚀 ~ file: App.js ~ line 122 ~ InformationTable ~ data", data);
   return (
     <table style={style.table} className="informationTable">
       <thead>
@@ -115,11 +128,13 @@ function InformationTable(props) {
           <th style={style.tableCell}>Last name</th>
           <th style={style.tableCell}>Phone</th>
         </tr>
-        <tr>
-          <td style={style.tableCell}>f_rstName</td>
-          <td style={style.tableCell}>lastName</td>
-          <td style={style.tableCell}>phone</td>
-        </tr>
+        {/* {data.map((value) => {
+          <tr>
+            <td style={style.tableCell}>{value.firstName}</td>
+            <td style={style.tableCell}>{value.lastName}</td>
+            <td style={style.tableCell}>{value.phoneNumber}</td>
+          </tr>;
+        })} */}
       </thead>
     </table>
   );
